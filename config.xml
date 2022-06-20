@@ -1,0 +1,15 @@
+<config>
+	<routerName1>
+		<host>there is ur mikrotik ip</host>
+		<user>there is ur username</user>
+		<passwd>there is ur password for login</passwd>
+		<port>ssh port number(22 is default)</port>
+	</routerName1>
+	<routerName2>
+		<host>there is your mikrotik ip</host>
+		<user>there is ur username</user>
+		<passwd>there is ur password for login</passwd>
+		<port>ssh port number(22 is default)</port>
+	</routerName2>
+</config>
+	
