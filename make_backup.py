@@ -91,6 +91,6 @@ for child in root:
     createBackupFolder()
     os.chdir("backup")
     hostNewFolder(name)
-#    SetConnection(host, port, user, passwd)  
+    SetConnection(host, port, user, passwd)  
     print("Saved in " + os.getcwd())
     os.chdir(mainFolder)
