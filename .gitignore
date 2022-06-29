@@ -1,3 +1,5 @@
 testconfig.xml
 test.py
 /.venv/
+/backup/
+run.sh

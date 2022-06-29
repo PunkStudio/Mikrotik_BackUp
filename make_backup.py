@@ -1,15 +1,14 @@
 #!/usr/bin/python3
+import os
+
 try:
     import xml.etree.cElementTree as ET
-except importError:
+except ImportError:
     import xml.etree.ElementTree as ET
-
 import netmiko
 from netmiko import ConnectHandler
 import time
-import os
 from colorama import init, Fore, Back, Style
-from cryptography.fernet import Fernet
 
 init(autoreset=True)
 mainFolder = os.getcwd()
@@ -69,11 +68,6 @@ def hostNewFolder(folderName):
     if not os.path.exists(folderName): os.makedirs(folderName)
     os.chdir(folderName)
 
-
-# write_key()
-key = load_key()
-file = 'config.xml'
-encrypt(file, key)
 
 tree = ET.ElementTree(file='config.xml')
 
