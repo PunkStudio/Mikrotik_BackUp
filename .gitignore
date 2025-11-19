@@ -3,3 +3,5 @@ test.py
 /.venv/
 /backup/
 run.sh
+.env
+/data

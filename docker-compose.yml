@@ -1,0 +1,22 @@
+services:
+  consul:
+    image: hashicorp/consul:latest
+    command: agent -dev -client=0.0.0.0
+    environment:
+      - CONSUL_LOCAL_CONFIG={"acl":{"enabled":true,"default_policy":"deny","down_policy":"extend-cache","tokens":{"initial_management":"${CONSUL_MANAGEMENT_TOKEN:-changeme-token}"}},"ui_config":{"enabled":true}}
+    ports:
+      - "8500:8500"
+    restart: unless-stopped
+
+  backup:
+    build: .
+    env_file:
+      - .env
+    environment:
+      - BACKUP_DIR=/data/backup
+      - CONSUL_HTTP_ADDR=${CONSUL_HTTP_ADDR:-http://consul:8500}
+    volumes:
+      - ./data:/data
+    depends_on:
+      - consul
+    restart: unless-stopped
